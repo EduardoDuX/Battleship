@@ -1,3 +1,5 @@
+package batalhanaval;
+
 import java.util.ArrayList;
 
 public class TabuleiroDefesa extends Tabuleiro{
@@ -35,13 +37,14 @@ public class TabuleiroDefesa extends Tabuleiro{
             }
         }
         e.setPosicoes(posicoes);
+        
         if (e instanceof Submarino){
             submarinos.add(e);
         }
         if (e instanceof PortaAvioes){
             portaAvioes.add(e);
         }
-        if (e instanceof ContraTorpedeiro){
+        if (e instanceof Contratorpedeiro){
             contraTorpedeiros.add(e);
         }
         if (e instanceof NavioTanque){

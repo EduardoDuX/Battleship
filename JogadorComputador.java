@@ -1,3 +1,5 @@
+package batalhanaval;
+
 public class JogadorComputador extends Jogador{
 
     public JogadorComputador(){
@@ -14,7 +16,7 @@ public class JogadorComputador extends Jogador{
             td.colocarEmbarcacao(new NavioTanque; Posicao p, boolean orientacao);
         }
         for (int i = 0; i < NUM_CT; i++){
-            td.colocarEmbarcacao(new ContraTorpedeiro; Posicao p, boolean orientacao);
+            td.colocarEmbarcacao(new Contratorpedeiro; Posicao p, boolean orientacao);
         }
         for (int i = 0; i < NUM_PA; i++){
             td.colocarEmbarcacao(new PortaAvioes; Posicao p, boolean orientacao);

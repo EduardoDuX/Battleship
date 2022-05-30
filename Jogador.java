@@ -1,10 +1,12 @@
+package batalhanaval;
+
 public class Jogador {
     private TabuleiroAtaque ta;
     private TabuleiroDefesa td;
-    private static final int NUM_SUBS = 0;
-    private static final int NUM_TANKS = 0;
-    private static final int NUM_CT = 0;
-    private static final int NUM_PA = 0;
+    private static final int NUM_SUBS = 4;
+    private static final int NUM_CT = 3;
+    private static final int NUM_TANKS = 2;
+    private static final int NUM_PA = 1;
 
     public Jogador(){
         ta = new TabuleiroAtaque();
@@ -14,16 +16,16 @@ public class Jogador {
     public void colocarEmbarcacoes(){
 
         for (int i = 0; i < NUM_SUBS; i++){
-            td.colocarEmbarcacao(new Submarino; Posicao p, boolean orientacao);
+            td.colocarEmbarcacao(new Submarino(); Posicao p, boolean orientacao);
         }
         for (int i = 0; i < NUM_TANKS; i++){
-            td.colocarEmbarcacao(new NavioTanque; Posicao p, boolean orientacao);
+            td.colocarEmbarcacao(new NavioTanque(); Posicao p, boolean orientacao);
         }
         for (int i = 0; i < NUM_CT; i++){
-            td.colocarEmbarcacao(new ContraTorpedeiro; Posicao p, boolean orientacao);
+            td.colocarEmbarcacao(new Contratorpedeiro(); Posicao p, boolean orientacao);
         }
         for (int i = 0; i < NUM_PA; i++){
-            td.colocarEmbarcacao(new PortaAvioes; Posicao p, boolean orientacao);
+            td.colocarEmbarcacao(new PortaAvioes(); Posicao p, boolean orientacao);
         }
     }
 }

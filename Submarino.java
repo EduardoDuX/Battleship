@@ -12,20 +12,43 @@ public class Submarino extends Embarcacao {
     private final int Tamanho = 2;
     private Posicao[] Posicoes = new Posicao[Tamanho];
     
-    public void setPosicoes(){
-        for(int i = 0; i< this.Tamanho; i++)
+    public void Submarino(){}
+    
+    public int getTamanho()
+    {
+        return this.Tamanho;
+    }
+    
+    public void setPosicoes(Posicao posicoes[]){
+        for(int i = 0; i < this.Tamanho; i++)
         {
-            Posicoes[i] = new Posicao();
+            this.Posicoes[i] = posicoes[i];
         }
     }
+    
+    //Verifica se uma posicao "pos" coincide com uma das presentes no objeto
+    //caso sim indica a cor como Vermelha e retorna positivo
+    public boolean verificaPosicao(Posicao pos)
+    {
+        for(int i = 0; i < this.Tamanho; i++)
+        {
+            if(this.Posicoes[i].getLinha() == pos.getLinha() && this.Posicoes[i].getColuna() == pos.getColuna())
+            {
+                Posicoes[i].setCor("Vermelho");
+                return true;
+            }
+        }
+        return false;
+    }
+    @Override
+    //Verifica se todas as cores das posicoes do objeto sao vermelhas, caso sim aponta como verdadeiro o atributo destruido
     public void VerificaDestruido()
     {
         for(int i = 0; i < this.Tamanho; i++)
         {
-            if(Posicoes[i].getCor() != "Vermelho")
+            if(Posicoes[i].getCor().equals("Vermelho") == false)
                 return;
         }
         this.Destruido = true;
-    }
-    
+    }    
 }

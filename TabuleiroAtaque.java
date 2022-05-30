@@ -1,3 +1,5 @@
+package batalhanaval;
+
 public class TabuleiroAtaque extends Tabuleiro{
     private int acertos;
 

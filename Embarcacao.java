@@ -9,7 +9,7 @@ package batalhanaval;
  * @author Pedro
  */
 public abstract class Embarcacao {
-    private Boolean destruido = false;
+    protected Boolean Destruido = false;
     
     public abstract void VerificaDestruido();
 }

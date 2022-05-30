@@ -19,9 +19,27 @@ public class Posicao {
         this.Linha = Vetor[0];
         this.Coluna = (int)Vetor[1];
     }
-    
-    public String setCor()
+    public void setLinha(char linha)
     {
+        this.Linha = linha;
+    }
+    public char getLinha()
+    {
+        return this.Linha;
+    }
+    
+    public void setColuna(int coluna)
+    {
+        this.Coluna = coluna;
+    }
+    public int getColuna()
+    {
+        return this.Coluna;
+    }
+    
+    public void setCor(String cor)
+    {
+        this.Cor = cor;
     }
     
     public String getCor()

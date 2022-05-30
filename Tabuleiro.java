@@ -1,3 +1,5 @@
+package batalhanaval;
+
 public class Tabuleiro {
     protected Posicao[][] grelha;
 
