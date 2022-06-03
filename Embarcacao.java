@@ -1,15 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package batalhanaval;
-
-/**
- *
- * @author Pedro
- */
 public abstract class Embarcacao {
-    private Boolean destruido = false;
-    
+    protected Boolean destruido = false;
+    protected int tamanho;
+
+    protected Posicao[] posicoes = new Posicao[tamanho];
+    public Boolean getDestruido() {
+        return destruido;
+    }
+
+    public void setDestruido(Boolean destruido) {
+        this.destruido = destruido;
+    }
+
+    public int getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(int tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public Posicao[] getPosicoes() {
+        return posicoes;
+    }
+
+    public void setPosicoes(Posicao[] posicoes) {
+        this.posicoes = posicoes;
+    }
+
     public abstract void VerificaDestruido();
 }

@@ -1,9 +1,9 @@
-public class Submarino extends Embarcacao {
+public class ContraTorpedeiro extends Embarcacao{
     private final int tamanho = 2;
     private Posicao[] posicoes = new Posicao[tamanho];
     
     public void setPosicoes(){
-        for(int i = 0; i< this.tamanho; i++)
+        for(int i = 0; i < tamanho; i++)
         {
             posicoes[i] = new Posicao();
         }

@@ -16,10 +16,9 @@ public class TabuleiroDefesa extends Tabuleiro{
 
     public void colocarEmbarcacao(Embarcacao e, Posicao p, boolean orientacao){
         //orientacao == 1(vertical); 0(horizontal)
-
+        int tam = e.getTamanho();
+        Posicao[] posicoes = new Posicao[tam];
         if (orientacao){
-            int tam = e.getTamanho();
-            Posicao[] posicoes = new Posicao[tam];
             int c = (int)p.getLinha();
             for (int i = 0; i < tam; i++){
                 posicoes[i].setLinha((char)c);
@@ -27,8 +26,6 @@ public class TabuleiroDefesa extends Tabuleiro{
                 c++;
             }
         } else {
-            int tam = e.getTamanho();
-            Posicao[] posicoes = new Posicao[tam];
             for (int i = p.getColuna(); i < tam; i++){
                 posicoes[i].setLinha(p.getLinha());
                 posicoes[i].setColuna(i);

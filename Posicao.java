@@ -1,31 +1,37 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package batalhanaval;
-
-/**
- *
- * @author Pedro
- */
 public class Posicao {
-    char Linha;
-    int Coluna;
-    String Cor;
-    public void Posicao(){}
-    
-    public void setPosicao(char Vetor[])
-    {
-        this.Linha = Vetor[0];
-        this.Coluna = (int)Vetor[1];
+    private char linha;
+    private int coluna;
+    private String cor;
+
+    public char getLinha() {
+        return linha;
     }
-    
-    public String setCor()
-    {
+
+    public void setLinha(char linha) {
+        if (0 < linha && linha < 11)
+            this.linha = linha;
     }
-    
-    public String getCor()
-    {
-        return this.Cor;
+
+    public int getColuna() {
+        return coluna;
+    }
+
+    public void setColuna(int coluna) {
+        if (Character.isLetter(coluna) && (int) coluna  >= (int)'a' && (int) coluna <= (int)'j' )
+            this.coluna = coluna;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+
+    //    Tem barco(escondido): cinza
+//    Tem barco(destruido): vermelho
+//    Fog: Branco
+//    Mar: Azul
+    public void setCor(String cor) {
+        if (cor == "cinza" || cor == "vermelho" || cor == "azul" || cor == "branco")
+            this.cor = cor;
     }
 }

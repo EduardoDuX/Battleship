@@ -1,30 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package batalhanaval;
-
-/**
- *
- * @author Pedro
- */
 public class PortaAvioes extends Embarcacao {
-    private final int Tamanho = 2;
-    private Posicao[] Posicoes = new Posicao[Tamanho];
+    private final int tamanho = 2;
+    private Posicao[] posicoes = new Posicao[tamanho];
     
     public void setPosicoes(){
-        for(int i = 0; i< Tamanho; i++)
+        for(int i = 0; i< tamanho; i++)
         {
-            Posicoes[i] = new Posicao();
+            posicoes[i] = new Posicao();
         }
     }
     public void VerificaDestruido()
     {
-        for(int i = 0; i < this.Tamanho; i++)
+        for(int i = 0; i < this.tamanho; i++)
         {
-            if(Posicoes[i].getCor() != "Vermelho")
+            if(posicoes[i].getCor() != "Vermelho")
                 return;
         }
-        this.Destruido = true;
+        this.destruido = true;
     }
 }
