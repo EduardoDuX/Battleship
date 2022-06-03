@@ -1,10 +1,10 @@
 public class Jogador {
     private TabuleiroAtaque ta;
     private TabuleiroDefesa td;
-    private static final int NUM_SUBS = 0;
-    private static final int NUM_TANKS = 0;
-    private static final int NUM_CT = 0;
-    private static final int NUM_PA = 0;
+    private static final int NUM_SUBS = 4;
+    private static final int NUM_TANKS = 3;
+    private static final int NUM_CT = 2;
+    private static final int NUM_PA = 1;
 
     public Jogador(){
         ta = new TabuleiroAtaque();
