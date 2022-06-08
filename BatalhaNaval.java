@@ -11,7 +11,7 @@ public abstract class BatalhaNaval{
         f.setVisible(true);
         f.setLayout(new BorderLayout());
         f.add(ataque, BorderLayout.EAST);
-        JLabel blank = new JLabel("                  ((Gambiarra))                ");
+        JLabel blank = new JLabel("                                ");
         f.add(blank,BorderLayout.CENTER);
         f.add(defesa, BorderLayout.WEST);
         f.pack();

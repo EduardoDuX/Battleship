@@ -19,7 +19,7 @@ public class Tabuleiro extends JPanel {
                 grelha[linha][coluna].setColuna(coluna);
                 grelha[linha][coluna].setLinha((char)aux);
                 botoes[linha][coluna] = new JButton((char)aux +""+  coluna);
-//                botoes[linha][coluna].setEnabled(false);
+                botoes[linha][coluna].setBackground(Color.decode("#4169E1"));
                 painel.add(botoes[linha][coluna]);
             }
             aux++;
