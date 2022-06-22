@@ -1,3 +1,7 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class TabuleiroDefesa extends Tabuleiro{
@@ -12,6 +16,12 @@ public class TabuleiroDefesa extends Tabuleiro{
         portaAvioes = new ArrayList<Embarcacao>();
         contraTorpedeiros = new ArrayList<Embarcacao>();
         naviosTanque = new ArrayList<Embarcacao>();
+        for(int linha = 0; linha < 10; linha++){
+            for (int coluna = 0; coluna < 10;coluna++){
+                TabuleiroDefesa.DefenseButtonHandler handler = new TabuleiroDefesa.DefenseButtonHandler(grelha[linha][coluna]);
+                botoes[linha][coluna].addActionListener(handler);
+            }
+        }
     }
 
     public void colocarEmbarcacao(Embarcacao e, Posicao p, boolean orientacao){
@@ -46,5 +56,22 @@ public class TabuleiroDefesa extends Tabuleiro{
         }
     }
 
+    private class DefenseButtonHandler implements ActionListener {
+        private Posicao posicao;
 
+        public DefenseButtonHandler(Posicao p){
+            this.posicao = p;
+        }
+
+        public Posicao getPosicao() {
+            return posicao;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            JButton b = (JButton) event.getSource();
+            b.setEnabled(false);
+            System.out.println(posicao.getColuna());
+        }
+    }
 }

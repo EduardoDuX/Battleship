@@ -8,8 +8,7 @@ public class Posicao {
     }
 
     public void setLinha(char linha) {
-        if (0 < linha && linha < 11)
-            this.linha = linha;
+        this.linha = linha;
     }
 
     public int getColuna() {
@@ -17,8 +16,7 @@ public class Posicao {
     }
 
     public void setColuna(int coluna) {
-        if (Character.isLetter(coluna) && (int) coluna  >= (int)'a' && (int) coluna <= (int)'j' )
-            this.coluna = coluna;
+        this.coluna = coluna;
     }
 
     public String getCor() {
@@ -31,7 +29,6 @@ public class Posicao {
 //    Fog: Branco
 //    Mar: Azul
     public void setCor(String cor) {
-        if (cor == "cinza" || cor == "vermelho" || cor == "azul" || cor == "branco")
-            this.cor = cor;
+        this.cor = cor;
     }
 }
