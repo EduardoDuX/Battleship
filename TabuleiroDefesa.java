@@ -6,39 +6,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class TabuleiroDefesa extends Tabuleiro{ 
-//    private Embarcacao[] submarinos;
-//    private Embarcacao[] portaAvioes;
-//    private Embarcacao[] contraTorpedeiros;
-//    private Embarcacao[] naviosTanque;
-//    private Embarcacao[][] embarcacoes = {submarinos, portaAvioes, contraTorpedeiros, naviosTanque};
-
-//    public TabuleiroDefesa(){
-//        super();
-//        int i;
-//        submarinos = new Embarcacao[4];
-//        for(i=0; i< 4; i++)
-//            submarinos[i] = new Submarino();
-//        
-//        contraTorpedeiros = new Embarcacao[3];
-//        for(i=0; i< 3; i++)
-//            submarinos[i] = new ContraTorpedeiro();
-//        
-//        naviosTanque = new Embarcacao[2];
-//        for(i=0; i< 2; i++)
-//            submarinos[i] = new NavioTanque();
-//        
-//        portaAvioes = new Embarcacao[1];
-//        portaAvioes[0] = new PortaAvioes();
-//        
-//        
-//        for(int linha = 0; linha < 10; linha++){
-//            for (int coluna = 0; coluna < 10;coluna++){
-//                TabuleiroDefesa.DefenseButtonHandler handler = new TabuleiroDefesa.DefenseButtonHandler(grelha[linha][coluna]);
-//                botoes[linha][coluna].addActionListener(handler);
-//            }
-//        }
-//    }
-    
     private ArrayList<Embarcacao> submarinos;
     private ArrayList<Embarcacao> portaAvioes;
     private ArrayList<Embarcacao> contraTorpedeiros;
