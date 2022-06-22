@@ -1,3 +1,4 @@
+package battleship;
 public class NavioTanque extends Embarcacao {
 
     public NavioTanque(){

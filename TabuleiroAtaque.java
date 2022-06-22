@@ -1,3 +1,4 @@
+package battleship;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -42,7 +43,7 @@ public class TabuleiroAtaque extends Tabuleiro{
 
             JButton b = (JButton) event.getSource();
             b.setEnabled(false);
-            System.out.println(posicao.getLinha());
+            System.out.println(posicao);
 
         } // end method actionPerformed
     }

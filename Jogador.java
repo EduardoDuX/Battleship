@@ -1,3 +1,4 @@
+package battleship;
 public class Jogador {
     protected TabuleiroAtaque ta;
     protected TabuleiroDefesa td;
@@ -14,16 +15,27 @@ public class Jogador {
     public void colocarEmbarcacoes(){
 
         for (int i = 0; i < NUM_SUBS; i++){
-            td.colocarEmbarcacao(new Submarino(),  new Posicao(), true);
+            try{             
+                td.colocarEmbarcacao(new Submarino(),  new Posicao(), true);
+                }   catch(PosInvalidaException e){}       
         }
+        
         for (int i = 0; i < NUM_TANKS; i++){
-            td.colocarEmbarcacao(new NavioTanque(),  new Posicao(),true);
+            try{             
+                td.colocarEmbarcacao(new NavioTanque(),  new Posicao(), true);
+                }   catch(PosInvalidaException e){}
         }
+        
         for (int i = 0; i < NUM_CT; i++){
-            td.colocarEmbarcacao(new ContraTorpedeiro(),  new Posicao(),true);
+            try{             
+                td.colocarEmbarcacao(new ContraTorpedeiro(),  new Posicao(), true);
+                }   catch(PosInvalidaException e){}
         }
+        
         for (int i = 0; i < NUM_PA; i++){
-            td.colocarEmbarcacao(new PortaAvioes(),  new Posicao(),true);
+            try{             
+                td.colocarEmbarcacao(new PortaAvioes(),  new Posicao(), true);
+                }   catch(PosInvalidaException e){}
         }
     }
 }

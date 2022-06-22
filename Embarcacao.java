@@ -1,3 +1,4 @@
+package battleship;
 public abstract class Embarcacao {
     protected Boolean destruido = false;
     protected int tamanho;

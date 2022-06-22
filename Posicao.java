@@ -1,3 +1,4 @@
+package battleship;
 public class Posicao {
     private char linha;
     private int coluna;
@@ -30,5 +31,12 @@ public class Posicao {
 //    Mar: Azul
     public void setCor(String cor) {
         this.cor = cor;
+    }
+    
+    @Override
+    public String toString()
+    {
+//        char col = (char)(coluna);
+        return linha + String.valueOf(this.coluna);
     }
 }

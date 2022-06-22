@@ -1,3 +1,4 @@
+package battleship;
 public class ContraTorpedeiro extends Embarcacao{
 
     public ContraTorpedeiro(){
