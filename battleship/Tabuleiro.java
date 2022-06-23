@@ -16,11 +16,9 @@ public class Tabuleiro extends JPanel {
         int aux = (int) 'A';
         for (int linha = 0; linha < 10; linha++) {
             for (int coluna = 0; coluna < 10; coluna++) {
-                grelha[linha][coluna] = new Posicao();
-                grelha[linha][coluna].setColuna(coluna);
-                grelha[linha][coluna].setLinha((char) aux);
                 botoes[linha][coluna] = new JButton((char) aux + "" + coluna);
                 botoes[linha][coluna].setBackground(Color.decode("#4169E1"));
+                grelha[linha][coluna] = new Posicao((char) aux, coluna,botoes[linha][coluna]);
                 painel.add(botoes[linha][coluna]);
             }
             aux++;
