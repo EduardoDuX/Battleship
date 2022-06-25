@@ -1,3 +1,5 @@
+package battleship.java;
+
 import java.util.ArrayList;
 import java.util.Random;
 

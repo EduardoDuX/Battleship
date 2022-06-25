@@ -1,3 +1,5 @@
+package battleship.java;
+
 public class PortaAvioes extends Embarcacao {
     public PortaAvioes(){
         posicoes = new Posicao[tamanho];

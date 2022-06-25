@@ -1,3 +1,5 @@
+package battleship.java;
+
 public class NavioTanque extends Embarcacao {
 
     public NavioTanque(){

@@ -1,3 +1,5 @@
+package battleship.java;
+
 public class Submarino extends Embarcacao {
 
     public Submarino(){

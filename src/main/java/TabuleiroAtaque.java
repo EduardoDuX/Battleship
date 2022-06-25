@@ -1,3 +1,5 @@
+package battleship.java;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,8 +20,15 @@ public class TabuleiroAtaque extends Tabuleiro{
     }
 
     public void verificaVitoria(){
-        if (acertos == 31){
-            JOptionPane.showMessageDialog(painel, "Você venceu");
+        if (acertos == 30){
+            if(oponente instanceof JogadorComputador)
+            {
+                JOptionPane.showMessageDialog(painel, "Você venceu");
+            }
+            else {
+                JOptionPane.showMessageDialog(painel, "O adversário venceu");
+            }
+
             System.exit(0);
         }
     }
@@ -40,6 +49,7 @@ public class TabuleiroAtaque extends Tabuleiro{
         ativarBotoes(false);
         if (oponente instanceof JogadorComputador){
             ((JogadorComputador) oponente).atacar();
+            verificaVitoria();
         }
     }
 

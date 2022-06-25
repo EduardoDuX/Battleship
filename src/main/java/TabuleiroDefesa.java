@@ -1,3 +1,5 @@
+package battleship.java;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,8 +12,8 @@ public class TabuleiroDefesa extends Tabuleiro{
     private ArrayList<Embarcacao> contraTorpedeiros;
     private ArrayList<Embarcacao> naviosTanque;
     protected static final int NUM_SUBS = 4;
-    protected static final int NUM_TANKS = 3;
-    protected static final int NUM_CT = 2;
+    protected static final int NUM_TANKS = 2;
+    protected static final int NUM_CT = 3;
     protected static final int NUM_PA = 1;
 
     private TabuleiroAtaque tAtaque;
@@ -133,7 +135,7 @@ public class TabuleiroDefesa extends Tabuleiro{
             try {
                 if (barcos <= NUM_SUBS) {
                     colocarEmbarcacao(new Submarino(), posicao, controleOrientacao);
-                } else if (barcos <= NUM_TANKS + NUM_SUBS) {
+                } else if (barcos <= NUM_CT + NUM_SUBS) {
                     colocarEmbarcacao(new ContraTorpedeiro(), posicao, controleOrientacao);
                 } else if (barcos <= NUM_TANKS + NUM_CT + NUM_SUBS) {
                     colocarEmbarcacao(new NavioTanque(), posicao, controleOrientacao);

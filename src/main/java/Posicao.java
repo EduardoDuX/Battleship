@@ -1,3 +1,5 @@
+package battleship.java;
+
 import javax.swing.*;
 
 public class Posicao  implements Cloneable {

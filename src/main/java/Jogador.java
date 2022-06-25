@@ -1,3 +1,5 @@
+package battleship.java;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,8 +13,8 @@ public class Jogador {
     private Jogador oponente;
 
     protected static final int NUM_SUBS = 4;
-    protected static final int NUM_TANKS = 3;
-    protected static final int NUM_CT = 2;
+    protected static final int NUM_CT = 3;
+    protected static final int NUM_TANKS = 2;
     protected static final int NUM_PA = 1;
     public Jogador(){
         tAtaque = new TabuleiroAtaque();
