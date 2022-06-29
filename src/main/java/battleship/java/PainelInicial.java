@@ -5,13 +5,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PainelInicial extends JFrame {
-    static JFrame frame = new JFrame("teste");
-
     static JButton botaoSingle;
 
     static PainelInicial.ButtonHandler handler = new PainelInicial.ButtonHandler();
     PainelInicial() {
-        ImageIcon iconeSingle = new ImageIcon("singleplayer.png");
+        ImageIcon iconeSingle = new ImageIcon("./imagens/singleplayer.png");
         botaoSingle = new JButton("SinglePlayer");
 //        botaoSingle.setBorder((BorderFactory.createEmptyBorder()));
 //        botaoSingle.setContentAreaFilled(false);
@@ -20,15 +18,15 @@ public class PainelInicial extends JFrame {
         botaoSingle.setBounds(350, 300, 200, 50);
         botaoSingle.setIcon(iconeSingle);
 
-        ImageIcon iconeMulti = new ImageIcon("multiplayer.png");
+        ImageIcon iconeMulti = new ImageIcon("./imagens/multiplayer.png");
         JButton botaoMulti = new JButton("MultiPlayer");
         botaoMulti.addActionListener(handler);
         botaoMulti.setBounds(650, 300, 200, 50);
         botaoMulti.setFocusable(false);
         botaoMulti.setIcon(iconeMulti);
-        botaoMulti.setEnabled(false);
+        botaoMulti.setEnabled(true);
 
-        this.setContentPane(new JLabel(new ImageIcon("imagem_bg.jpeg")));
+        this.setContentPane(new JLabel(new ImageIcon("./imagens/imagem_bg.jpeg")));
         this.add(botaoSingle);
         this.add(botaoMulti);
         this.pack();
@@ -41,11 +39,13 @@ public class PainelInicial extends JFrame {
           @Override
           public void actionPerformed(ActionEvent event) {
               if (event.getSource() == botaoSingle) {
-                  BatalhaNaval.painel.setVisible(false);
+                  BatalhaNaval.painel.dispose();
                   BatalhaNaval.JogoSolo();
                   System.out.println("single");
               } else {
                   System.out.println("multi");
+                  BatalhaNaval.painel.dispose();
+                  OpcoesConexao opcoes = new OpcoesConexao();
               }
           }
       }

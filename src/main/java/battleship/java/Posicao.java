@@ -30,7 +30,7 @@ public class Posicao  implements Cloneable {
         return linha;
     }
     public int getIntLinha() {
-        return (int)(linha-'A');
+        return linha-'A';
     }
 
     public void setAtingida(boolean atingida) {
@@ -73,8 +73,7 @@ public class Posicao  implements Cloneable {
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Posicao){
-            if (((Posicao) obj).getLinha() == this.linha && ((Posicao) obj).getColuna() == this.coluna)
-                return true;
+            return ((Posicao) obj).getLinha() == this.linha && ((Posicao) obj).getColuna() == this.coluna;
         }
         return false;
     }

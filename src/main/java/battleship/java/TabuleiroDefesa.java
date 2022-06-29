@@ -7,26 +7,25 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class TabuleiroDefesa extends Tabuleiro{
-    private ArrayList<Embarcacao> submarinos;
-    private ArrayList<Embarcacao> portaAvioes;
-    private ArrayList<Embarcacao> contraTorpedeiros;
-    private ArrayList<Embarcacao> naviosTanque;
+    private final ArrayList<Embarcacao> submarinos;
+    private final ArrayList<Embarcacao> portaAvioes;
+    private final ArrayList<Embarcacao> contraTorpedeiros;
+    private final ArrayList<Embarcacao> naviosTanque;
     protected static final int NUM_SUBS = 4;
     protected static final int NUM_TANKS = 2;
     protected static final int NUM_CT = 3;
-    protected static final int NUM_PA = 1;
 
     private TabuleiroAtaque tAtaque;
 
     public boolean controleOrientacao = true;
-    protected static int barcos = 0;
+    protected int barcos = 0;
 
     public TabuleiroDefesa(){
         super();
-        submarinos = new ArrayList<Embarcacao>();
-        portaAvioes = new ArrayList<Embarcacao>();
-        contraTorpedeiros = new ArrayList<Embarcacao>();
-        naviosTanque = new ArrayList<Embarcacao>();
+        submarinos = new ArrayList<>();
+        portaAvioes = new ArrayList<>();
+        contraTorpedeiros = new ArrayList<>();
+        naviosTanque = new ArrayList<>();
         for(int linha = 0; linha < 10; linha++){
             for (int coluna = 0; coluna < 10;coluna++){
                 TabuleiroDefesa.DefenseButtonHandler handler = new TabuleiroDefesa.DefenseButtonHandler(grelha[linha][coluna]);
@@ -123,7 +122,7 @@ public class TabuleiroDefesa extends Tabuleiro{
     }
 
     private class DefenseButtonHandler implements ActionListener {
-        private Posicao posicao;
+        private final Posicao posicao;
 
         public DefenseButtonHandler(Posicao p){
             this.posicao = p;

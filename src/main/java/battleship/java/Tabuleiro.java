@@ -16,7 +16,7 @@ public class Tabuleiro extends JPanel {
         painel.setLayout(new GridLayout(10, 10));
         this.setLayout(new BorderLayout());
         grelha = new Posicao[10][10];
-        int aux = (int) 'A';
+        int aux = 'A';
         for (int linha = 0; linha < 10; linha++) {
             for (int coluna = 0; coluna < 10; coluna++) {
                 botoes[linha][coluna] = new JButton((char) aux + "" + coluna);
@@ -39,7 +39,7 @@ public class Tabuleiro extends JPanel {
         }
     }
     public ArrayList<Posicao> getPosicoes(){
-        ArrayList<Posicao> posicoes = new ArrayList<Posicao>();
+        ArrayList<Posicao> posicoes = new ArrayList<>();
         for (int linha = 0; linha < 10; linha++) {
             for (int coluna = 0; coluna < 10; coluna++) {
                 posicoes.add(grelha[linha][coluna].clone());

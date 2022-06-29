@@ -9,9 +9,6 @@ public class Jogador {
     protected TabuleiroAtaque tAtaque;
     protected TabuleiroDefesa tDefesa;
     protected JFrame pane;
-
-    private Jogador oponente;
-
     protected static final int NUM_SUBS = 4;
     protected static final int NUM_CT = 3;
     protected static final int NUM_TANKS = 2;
@@ -65,7 +62,6 @@ public class Jogador {
     }
 
     public void setOponente(Jogador oponente) {
-        this.oponente = oponente;
         tDefesa.setOponente(oponente);
         tAtaque.setOponente(oponente);
     }

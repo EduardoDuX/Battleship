@@ -35,12 +35,11 @@ public abstract class Embarcacao {
     }
 
     public boolean embarcacaoVerificaAcerto(Posicao p){
-        JButton b = null;
         for (Posicao pos: posicoes) {
             if (pos.equals(p)){
               System.out.println(pos);
-              b = pos.getBotao();
-              b.setBackground(Color.decode("#990000"));
+                JButton b = pos.getBotao();
+                b.setBackground(Color.decode("#990000"));
               return true;
             }
         }
