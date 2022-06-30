@@ -18,7 +18,7 @@ public class OpcoesConexao {
         JButton host = new JButton("Criar jogo");
         host.addActionListener(e -> {frameConexao.dispose();
             try {
-                BatalhaNaval.JogoMultiplayer(true, "");
+                BatalhaNaval.JogoMultiplayer(true, ip);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
@@ -29,7 +29,7 @@ public class OpcoesConexao {
             ip = ipText.getText();
             frameConexao.dispose();
             try {
-                BatalhaNaval.JogoMultiplayer(false,ip);
+                BatalhaNaval.JogoMultiplayer(false, ip);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

@@ -1,5 +1,7 @@
 package battleship.java;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -20,25 +22,33 @@ public class BatalhaNaval {
 
     public static void JogoMultiplayer(boolean ehServidor, String ip) throws IOException {
         Socket connection;
-        boolean comeca;
-
-
+        ObjectOutputStream output;
+        ObjectInputStream input;
         if (ehServidor){
             ServerSocket server = new ServerSocket(8888, 1);
-            System.out.println("aguardando conexao");
+            System.out.println("Aguardando conexao");
+            JFrame ac = new JFrame("Aguardando conexao");
+            ac.setLayout(new FlowLayout());
+            JLabel acl = new JLabel("Aguardando conexao");
+            ac.add(acl);
+            ac.setVisible(true);
+            ac.pack();
             connection = server.accept();
-            comeca = true;
+            input = new ObjectInputStream(connection.getInputStream());
+            output = new ObjectOutputStream(connection.getOutputStream());
+            ac.dispose();
             System.out.println("conectado");
         } else {
             connection = new Socket(ip, 8888);
-            comeca = false;
+            output = new ObjectOutputStream(connection.getOutputStream());
+            input = new ObjectInputStream(connection.getInputStream());
             System.out.println("conectado");
         }
         Jogador jogador = new Jogador();
-        jogador.comecar(comeca);
-        ObjectInputStream input = new ObjectInputStream(connection.getInputStream());
-        ObjectOutputStream output = new ObjectOutputStream(connection.getOutputStream());
-        jogador.setInputOutput(input,output);
+        jogador.setInputOutput(input, output);
+        jogador.comecar(ehServidor);
+
+
     }
 
     public static void main(String[] args) {

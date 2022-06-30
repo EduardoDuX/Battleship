@@ -1,8 +1,9 @@
 package battleship.java;
 
 import javax.swing.*;
+import java.io.Serializable;
 
-public class Posicao  implements Cloneable {
+public class Posicao  implements Cloneable, Serializable {
     private char linha;
     private int coluna;
     private JButton botao;

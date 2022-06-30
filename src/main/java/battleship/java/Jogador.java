@@ -20,7 +20,7 @@ public class Jogador {
         tDefesa = new TabuleiroDefesa();
         tDefesa.settAtaque(tAtaque);
         tAtaque.ativarBotoes(false);
-        pane = new JFrame();
+        pane = new JFrame("Batalha Naval");
         pane.setVisible(true);
         pane.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();

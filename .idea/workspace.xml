@@ -9,7 +9,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/BatalhaNaval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/BatalhaNaval.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/Jogador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/Jogador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/OpcoesConexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/OpcoesConexao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroDefesa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroDefesa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/Posicao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/Posicao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656547859487</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="commit para testar conexao">
+      <created>1656548848321</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1656548848321</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
