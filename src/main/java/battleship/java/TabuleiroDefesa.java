@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class TabuleiroDefesa extends Tabuleiro{
@@ -34,6 +37,7 @@ public class TabuleiroDefesa extends Tabuleiro{
         }
     }
 
+
     public void settAtaque(TabuleiroAtaque tAtaque) {
         this.tAtaque = tAtaque;
     }
@@ -46,24 +50,40 @@ public class TabuleiroDefesa extends Tabuleiro{
         return controleOrientacao;
     }
 
-    public boolean tabuleiroVerificaAcerto(Posicao p){
+    public boolean tabuleiroVerificaAcerto(Posicao p) throws IOException {
+        try {
+            p = (Posicao) input.readObject();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
         for (Embarcacao e: submarinos){
             if (e.embarcacaoVerificaAcerto(p))
+                if (output != null)
+                    output.writeBoolean(true);
                 return true;
         }
         for (Embarcacao e: naviosTanque){
             if (e.embarcacaoVerificaAcerto(p))
+                if (output != null)
+                    output.writeBoolean(true);
                 return true;
         }
         for (Embarcacao e: contraTorpedeiros){
             if (e.embarcacaoVerificaAcerto(p))
+                if (output != null)
+                    output.writeBoolean(true);
                 return true;
         }
         for (Embarcacao e: portaAvioes){
             if (e.embarcacaoVerificaAcerto(p))
+                if (output != null)
+                    output.writeBoolean(true);
                 return true;
         }
         grelha[p.getIntLinha()][p.getColuna()].getBotao().setBackground(Color.WHITE);
+        if (output != null)
+            output.writeBoolean(false);
         return false;
     }
 

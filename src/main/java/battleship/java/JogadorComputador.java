@@ -4,6 +4,10 @@ import java.util.Random;
 
 public class JogadorComputador extends Jogador{
     Random numAl;
+    protected static final int NUM_SUBS = 4;
+    protected static final int NUM_CT = 3;
+    protected static final int NUM_TANKS = 2;
+    protected static final int NUM_PA = 1;
     
     ArrayList<Posicao> posicoesJaAtacadas;
     public JogadorComputador(){
@@ -85,7 +89,7 @@ public class JogadorComputador extends Jogador{
 
     public void atacar(){
         int index = Math.abs(numAl.nextInt() % posicoesJaAtacadas.size());
-        tAtaque.atacar(posicoesJaAtacadas.get(index));
+//        tAtaque.atacar(posicoesJaAtacadas.get(index));
         posicoesJaAtacadas.remove(index);
     }
 }

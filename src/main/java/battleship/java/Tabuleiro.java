@@ -2,15 +2,18 @@ package battleship.java;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Tabuleiro extends JPanel {
     protected Posicao[][] grelha;
     protected JPanel painel = new JPanel();
     protected JButton[][] botoes;
-
     protected Jogador oponente;
 
+    protected static ObjectInputStream input;
+    protected static ObjectOutputStream output;
     public Tabuleiro() {
         botoes = new JButton[10][10];
         painel.setLayout(new GridLayout(10, 10));
@@ -49,6 +52,10 @@ public class Tabuleiro extends JPanel {
     }
 
 
+    public static void setInputOutput(ObjectInputStream i,ObjectOutputStream o) {
+        input = i;
+        output = o;
+    }
     public void setOponente(Jogador oponente) {
         this.oponente = oponente;
     }

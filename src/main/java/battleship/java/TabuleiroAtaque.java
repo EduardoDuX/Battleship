@@ -4,13 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 public class TabuleiroAtaque extends Tabuleiro{
-    private int acertos;
     public TabuleiroAtaque(){
         super();
-        acertos = 0;
-
         for(int linha = 0; linha < 10; linha++){
             for (int coluna = 0; coluna < 10;coluna++){
                 TabuleiroAtaque.AttackButtonHandler handler = new TabuleiroAtaque.AttackButtonHandler(grelha[linha][coluna]);
@@ -18,52 +17,33 @@ public class TabuleiroAtaque extends Tabuleiro{
             }
         }
     }
-
-    public void verificaVitoria(){
-        if (acertos == 30){
-            if(oponente instanceof JogadorComputador)
-            {
-                JOptionPane.showMessageDialog(painel, "Você venceu");
-            }
-            else {
-                JOptionPane.showMessageDialog(painel, "O adversário venceu");
-            }
-
-            System.exit(0);
-        }
-    }
-
-    public void atacar(Posicao posicao){
+    public void atacar(Posicao posicao, boolean acertou){
         Posicao posNoTab = grelha[posicao.getIntLinha()][posicao.getColuna()];
         posNoTab.setAtingida(true);
         JButton b = posNoTab.getBotao();
-        if (oponente.verificaAcerto(posicao)){
+        if (acertou){
             b.setBackground(Color.decode("#990000"));
-            acertos++;
-            verificaVitoria();
         } else {
             b.setBackground(Color.WHITE);
         }
         b.setEnabled(false);
-        oponente.podeAtacar(true);
         ativarBotoes(false);
-        if (oponente instanceof JogadorComputador){
-            ((JogadorComputador) oponente).atacar();
-            verificaVitoria();
-        }
     }
-
     private class AttackButtonHandler implements ActionListener {
-
-        private Posicao posicao;
-
+        private final Posicao posicao;
+        private boolean acertou = false;
         public AttackButtonHandler(Posicao posicao){
             this.posicao = posicao;
         }
-
         @Override
         public void actionPerformed(ActionEvent event) {
-            atacar(posicao);
-        } // end method actionPerformed
+            try {
+                output.writeObject(posicao);
+                acertou = input.readBoolean();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            atacar(posicao, acertou);
+        }
     }
 }

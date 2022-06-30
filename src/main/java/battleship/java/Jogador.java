@@ -4,15 +4,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class Jogador {
     protected TabuleiroAtaque tAtaque;
     protected TabuleiroDefesa tDefesa;
     protected JFrame pane;
-    protected static final int NUM_SUBS = 4;
-    protected static final int NUM_CT = 3;
-    protected static final int NUM_TANKS = 2;
-    protected static final int NUM_PA = 1;
+    private int acertos = 0;
+
+
+
     public Jogador(){
         tAtaque = new TabuleiroAtaque();
         tDefesa = new TabuleiroDefesa();
@@ -50,7 +53,6 @@ public class Jogador {
         botao.addActionListener(handler);
         botao.setPreferredSize(new Dimension(100,20));
         pane.add(botao, c);
-//        pane.add(Box.createHorizontalStrut(50),c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 2;
@@ -61,17 +63,42 @@ public class Jogador {
         pane.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
-    public void setOponente(Jogador oponente) {
+    public boolean verificaVitoria(){
+        if (acertos == 30){
+            return true;
+        }
+        return false;
+    }
+
+    public void setOponenteSolo(Jogador oponente) {
         tDefesa.setOponente(oponente);
         tAtaque.setOponente(oponente);
     }
+
+    public void setInputOutput(ObjectInputStream input,ObjectOutputStream output) {
+        Tabuleiro.setInputOutput(input, output);
+    }
+
 
     public void podeAtacar(boolean podeAtacar) {
         tAtaque.ativarBotoes(podeAtacar);
     }
 
     public boolean verificaAcerto(Posicao p){
-        return tDefesa.tabuleiroVerificaAcerto(p);
+        try {
+            return tDefesa.tabuleiroVerificaAcerto(p);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            tAtaque.ativarBotoes(true);
+        }
+
+    }
+
+    public void atacar(Posicao posicao, boolean acertou){
+        if (acertou)
+            acertos++;
+        tAtaque.atacar(posicao, acertou);
     }
 
     private class OrientacaoButtonHandler implements ActionListener {
