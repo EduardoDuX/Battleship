@@ -20,20 +20,25 @@ public class BatalhaNaval {
 
     public static void JogoMultiplayer(boolean ehServidor, String ip) throws IOException {
         Socket connection;
-        Jogador p1 = new Jogador();
+        boolean comeca;
+
 
         if (ehServidor){
             ServerSocket server = new ServerSocket(8888, 1);
             System.out.println("aguardando conexao");
             connection = server.accept();
-            p1.podeAtacar(true);
+            comeca = true;
+            System.out.println("conectado");
         } else {
             connection = new Socket(ip, 8888);
-            p1.podeAtacar(false);
+            comeca = false;
+            System.out.println("conectado");
         }
+        Jogador jogador = new Jogador();
+        jogador.comecar(comeca);
         ObjectInputStream input = new ObjectInputStream(connection.getInputStream());
         ObjectOutputStream output = new ObjectOutputStream(connection.getOutputStream());
-        p1.setInputOutput(input,output);
+        jogador.setInputOutput(input,output);
     }
 
     public static void main(String[] args) {

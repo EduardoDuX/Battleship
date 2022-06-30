@@ -9,7 +9,7 @@ public class OpcoesConexao {
     private final JFrame frameConexao;
 
     public OpcoesConexao() {
-        frameConexao = new JFrame();
+        frameConexao = new JFrame("teste");
         frameConexao.setLayout(new FlowLayout());
         frameConexao.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 

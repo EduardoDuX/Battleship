@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64e91800-a98e-4468-acee-5c25529aaf0b" name="Changes" comment="Comecando conexao por rede">
+    <list default="true" id="64e91800-a98e-4468-acee-5c25529aaf0b" name="Changes" comment="commit para testar conexao">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TabuleiroAtaque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroAtaque.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/BatalhaNaval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/BatalhaNaval.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/Jogador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/Jogador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/JogadorComputador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/JogadorComputador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/Tabuleiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/Tabuleiro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/OpcoesConexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/OpcoesConexao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroDefesa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroDefesa.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656465863879</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit para testar conexao">
+      <created>1656547859487</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656547859487</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,6 +126,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Comecando conexao por rede" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comecando conexao por rede" />
+    <MESSAGE value="git para testar conexao" />
+    <MESSAGE value="commit para testar conexao" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit para testar conexao" />
   </component>
 </project>

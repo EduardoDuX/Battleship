@@ -17,7 +17,7 @@ public class TabuleiroDefesa extends Tabuleiro{
     protected static final int NUM_SUBS = 4;
     protected static final int NUM_TANKS = 2;
     protected static final int NUM_CT = 3;
-
+    private boolean comeca = false;
     private TabuleiroAtaque tAtaque;
 
     public boolean controleOrientacao = true;
@@ -37,6 +37,9 @@ public class TabuleiroDefesa extends Tabuleiro{
         }
     }
 
+    public void setComeca(boolean comeca) {
+        this.comeca = comeca;
+    }
 
     public void settAtaque(TabuleiroAtaque tAtaque) {
         this.tAtaque = tAtaque;
@@ -167,7 +170,7 @@ public class TabuleiroDefesa extends Tabuleiro{
 
             if (barcos == 10){
                 ativarBotoes(false);
-                tAtaque.ativarBotoes(true);
+                tAtaque.ativarBotoes(comeca);
             }
         }
     }

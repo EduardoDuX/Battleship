@@ -15,7 +15,6 @@ public class Jogador {
     private int acertos = 0;
 
 
-
     public Jogador(){
         tAtaque = new TabuleiroAtaque();
         tDefesa = new TabuleiroDefesa();
@@ -68,6 +67,10 @@ public class Jogador {
             return true;
         }
         return false;
+    }
+
+    public void comecar(boolean b){
+        tDefesa.setComeca(b);
     }
 
     public void setOponenteSolo(Jogador oponente) {
