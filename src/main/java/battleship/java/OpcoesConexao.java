@@ -26,10 +26,10 @@ public class OpcoesConexao {
 
         JButton join = new JButton("Entrar em um jogo");
         join.addActionListener(e -> {
-            ip = ipText.getText();
+//            ip = ipText.getText();
             frameConexao.dispose();
             try {
-                BatalhaNaval.JogoMultiplayer(false, ip);
+                BatalhaNaval.JogoMultiplayer(false, "127.0.0.1");
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

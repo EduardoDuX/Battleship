@@ -11,7 +11,6 @@ public class Tabuleiro extends JPanel {
     protected JPanel painel = new JPanel();
     protected JButton[][] botoes;
     protected Jogador oponente;
-
     protected static ObjectInputStream input;
     protected static ObjectOutputStream output;
     public Tabuleiro() {
@@ -55,6 +54,7 @@ public class Tabuleiro extends JPanel {
     public static void setInputOutput(ObjectInputStream i,ObjectOutputStream o) {
         input = i;
         output = o;
+
     }
     public void setOponente(Jogador oponente) {
         this.oponente = oponente;

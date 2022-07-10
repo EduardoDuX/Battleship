@@ -9,16 +9,14 @@ public class PainelInicial extends JFrame {
 
     static PainelInicial.ButtonHandler handler = new PainelInicial.ButtonHandler();
     PainelInicial() {
-        ImageIcon iconeSingle = new ImageIcon("./imagens/singleplayer.png");
+        ImageIcon iconeSingle = new ImageIcon("src/main/java/imagens/singleplayer.png");
         botaoSingle = new JButton("SinglePlayer");
-//        botaoSingle.setBorder((BorderFactory.createEmptyBorder()));
-//        botaoSingle.setContentAreaFilled(false);
         botaoSingle.setFocusable(false);
         botaoSingle.addActionListener(handler);
         botaoSingle.setBounds(350, 300, 200, 50);
         botaoSingle.setIcon(iconeSingle);
 
-        ImageIcon iconeMulti = new ImageIcon("./imagens/multiplayer.png");
+        ImageIcon iconeMulti = new ImageIcon("src/main/java/imagens/multiplayer.png");
         JButton botaoMulti = new JButton("MultiPlayer");
         botaoMulti.addActionListener(handler);
         botaoMulti.setBounds(650, 300, 200, 50);
@@ -26,7 +24,7 @@ public class PainelInicial extends JFrame {
         botaoMulti.setIcon(iconeMulti);
         botaoMulti.setEnabled(true);
 
-        this.setContentPane(new JLabel(new ImageIcon("./imagens/imagem_bg.jpeg")));
+        this.setContentPane(new JLabel(new ImageIcon("src/main/java/imagens/imagem_bg.jpeg")));
         this.add(botaoSingle);
         this.add(botaoMulti);
         this.pack();

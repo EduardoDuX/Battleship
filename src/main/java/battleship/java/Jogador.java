@@ -13,9 +13,10 @@ public class Jogador {
     protected TabuleiroDefesa tDefesa;
     protected JFrame pane;
     private int acertos = 0;
-
+    private Object sincronizador;
 
     public Jogador(){
+        sincronizador = new Object();
         tAtaque = new TabuleiroAtaque();
         tDefesa = new TabuleiroDefesa();
         tDefesa.settAtaque(tAtaque);
@@ -62,11 +63,10 @@ public class Jogador {
         pane.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
-    public boolean verificaVitoria(){
+    public void verificaVitoria(){
         if (acertos == 30){
-            return true;
+            System.exit(0);
         }
-        return false;
     }
 
     public void comecar(boolean b){
@@ -80,6 +80,9 @@ public class Jogador {
 
     public void setInputOutput(ObjectInputStream input,ObjectOutputStream output) {
         Tabuleiro.setInputOutput(input, output);
+        Leitor leitor = new Leitor(input, tDefesa, tAtaque);
+        Thread t = new Thread(leitor);
+        t.start();
     }
 
 
@@ -101,7 +104,7 @@ public class Jogador {
     public void atacar(Posicao posicao, boolean acertou){
         if (acertou)
             acertos++;
-        tAtaque.atacar(posicao, acertou);
+        tAtaque.atacar(posicao);
     }
 
     private class OrientacaoButtonHandler implements ActionListener {

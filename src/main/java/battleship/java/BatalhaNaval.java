@@ -2,9 +2,7 @@ package battleship.java;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -47,12 +45,10 @@ public class BatalhaNaval {
         Jogador jogador = new Jogador();
         jogador.setInputOutput(input, output);
         jogador.comecar(ehServidor);
-
-
     }
 
     public static void main(String[] args) {
-//        painel = new PainelInicial();
-        OpcoesConexao opcoes = new OpcoesConexao();
+        painel = new PainelInicial();
+//        OpcoesConexao opcoes = new OpcoesConexao();
     }
 }

@@ -54,39 +54,37 @@ public class TabuleiroDefesa extends Tabuleiro{
     }
 
     public boolean tabuleiroVerificaAcerto(Posicao p) throws IOException {
-        try {
-            p = (Posicao) input.readObject();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
         for (Embarcacao e: submarinos){
-            if (e.embarcacaoVerificaAcerto(p))
+            if (e.embarcacaoVerificaAcerto(p)){
                 if (output != null)
-                    output.writeBoolean(true);
+                    output.writeObject(Boolean.valueOf(true));
                 return true;
+            }
         }
         for (Embarcacao e: naviosTanque){
-            if (e.embarcacaoVerificaAcerto(p))
+            if (e.embarcacaoVerificaAcerto(p)){
                 if (output != null)
-                    output.writeBoolean(true);
+                    output.writeObject(Boolean.valueOf(true));
                 return true;
+            }
         }
         for (Embarcacao e: contraTorpedeiros){
-            if (e.embarcacaoVerificaAcerto(p))
+            if (e.embarcacaoVerificaAcerto(p)){
                 if (output != null)
-                    output.writeBoolean(true);
+                    output.writeObject(Boolean.valueOf(true));
                 return true;
+            }
         }
         for (Embarcacao e: portaAvioes){
-            if (e.embarcacaoVerificaAcerto(p))
+            if (e.embarcacaoVerificaAcerto(p)){
                 if (output != null)
-                    output.writeBoolean(true);
+                    output.writeObject(Boolean.valueOf(true));
                 return true;
+            }
         }
         grelha[p.getIntLinha()][p.getColuna()].getBotao().setBackground(Color.WHITE);
         if (output != null)
-            output.writeBoolean(false);
+            output.writeObject(Boolean.valueOf(false));
         return false;
     }
 
