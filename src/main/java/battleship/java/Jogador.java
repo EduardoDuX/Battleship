@@ -13,10 +13,8 @@ public class Jogador {
     protected TabuleiroDefesa tDefesa;
     protected JFrame pane;
     private int acertos = 0;
-    private Object sincronizador;
 
     public Jogador(){
-        sincronizador = new Object();
         tAtaque = new TabuleiroAtaque();
         tDefesa = new TabuleiroDefesa();
         tDefesa.settAtaque(tAtaque);
@@ -84,8 +82,6 @@ public class Jogador {
         Thread t = new Thread(leitor);
         t.start();
     }
-
-
     public void podeAtacar(boolean podeAtacar) {
         tAtaque.ativarBotoes(podeAtacar);
     }
@@ -98,13 +94,6 @@ public class Jogador {
         } finally {
             tAtaque.ativarBotoes(true);
         }
-
-    }
-
-    public void atacar(Posicao posicao, boolean acertou){
-        if (acertou)
-            acertos++;
-        tAtaque.atacar(posicao);
     }
 
     private class OrientacaoButtonHandler implements ActionListener {

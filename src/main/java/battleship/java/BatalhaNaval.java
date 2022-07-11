@@ -16,6 +16,7 @@ public class BatalhaNaval {
         j.setOponenteSolo(jc);
         jc.setOponenteSolo(j);
         jc.colocarEmbarcacoes();
+        j.comecar(true);
     }
 
     public static void JogoMultiplayer(boolean ehServidor, String ip) throws IOException {

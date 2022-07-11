@@ -26,9 +26,7 @@ public class JogadorComputador extends Jogador{
         return pos;
     }
     public void colocarEmbarcacoes(){
-
         boolean posicaoExistente = false;
-
         // Alocando Submarinos aleatoriamente
         for (int i = 0; i < NUM_SUBS; i++){
             // Laço para garantir a inserção da embarcação caso haja erro
@@ -89,7 +87,8 @@ public class JogadorComputador extends Jogador{
 
     public void atacar(){
         int index = Math.abs(numAl.nextInt() % posicoesJaAtacadas.size());
-//        tAtaque.atacar(posicoesJaAtacadas.get(index));
+        tAtaque.setPosicaoAtacada(posicoesJaAtacadas.get(index));
+        tAtaque.atacar();
         posicoesJaAtacadas.remove(index);
     }
 }

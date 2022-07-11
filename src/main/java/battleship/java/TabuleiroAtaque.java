@@ -5,27 +5,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class TabuleiroAtaque extends Tabuleiro{
-    private boolean acertou;
-    private boolean esperando = true;
-    private Lock chave;
-    private Condition cond;
-    private static Posicao posicao;
+    private static Posicao posicaoAtacada;
 
-
-    public void setEsperando(boolean esperando) {
-        this.esperando = esperando;
-        System.out.println("flag modificada");
+    public static void setPosicaoAtacada(Posicao posicaoAtacada) {
+        TabuleiroAtaque.posicaoAtacada = posicaoAtacada;
     }
 
-    public void setAcertou(boolean acertou) {
-        this.acertou = acertou;
-        Posicao posNoTab = grelha[posicao.getIntLinha()][posicao.getColuna()];
+    public void respostaAtaque(boolean acertou) {
+        Posicao posNoTab = grelha[posicaoAtacada.getIntLinha()][posicaoAtacada.getColuna()];
         posNoTab.setAtingida(true);
         JButton b = posNoTab.getBotao();
         if (acertou){
@@ -44,14 +33,24 @@ public class TabuleiroAtaque extends Tabuleiro{
                 botoes[linha][coluna].addActionListener(handler);
             }
         }
-        chave = new ReentrantLock();
-        cond = chave.newCondition();
     }
-    public void atacar(Posicao posicao){
-        try {
-            output.writeObject(posicao);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    public void atacar(){
+        if (output != null){
+            try {
+                output.writeObject(posicaoAtacada);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        if (oponente != null){
+            if (oponente.verificaAcerto(posicaoAtacada)){
+                posicaoAtacada.getBotao().setBackground(Color.decode("#990000"));
+            } else {
+                posicaoAtacada.getBotao().setBackground(Color.WHITE);
+            }
+            //manda o bot atacar
+            if (oponente instanceof JogadorComputador)
+                ((JogadorComputador) oponente).atacar();
         }
     }
     private class AttackButtonHandler implements ActionListener {
@@ -61,8 +60,8 @@ public class TabuleiroAtaque extends Tabuleiro{
         }
         @Override
         public void actionPerformed(ActionEvent event) {
-            TabuleiroAtaque.posicao = posicao;
-            atacar(posicao);
+            TabuleiroAtaque.posicaoAtacada = posicao;
+            atacar();
         }
     }
 }

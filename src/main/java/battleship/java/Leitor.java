@@ -28,7 +28,7 @@ public class Leitor implements Runnable {
                     tAtaque.ativarBotoes(true);
                 } else {
                     System.out.println("era booleano " + (boolean) b);
-                    tAtaque.setAcertou((boolean) b);
+                    tAtaque.respostaAtaque((boolean) b);
 //                    tAtaque.setEsperando(false);
                     System.out.println("qualquer porra");
                 }

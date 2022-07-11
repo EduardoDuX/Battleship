@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64e91800-a98e-4468-acee-5c25529aaf0b" name="Changes" comment="Conexao funcionando">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/battleship/java/Leitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/BatalhaNaval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/BatalhaNaval.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/Jogador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/Jogador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/OpcoesConexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/OpcoesConexao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/PainelInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/PainelInicial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/Tabuleiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/Tabuleiro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/JogadorComputador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/JogadorComputador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/Leitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/Leitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroAtaque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroAtaque.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroDefesa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroDefesa.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,16 +45,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Eduardo/Documents/ProjetosJava/battleship",
-    "settings.editor.selected.configurable": "Errors"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Eduardo/Documents/ProjetosJava/battleship&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java" />
