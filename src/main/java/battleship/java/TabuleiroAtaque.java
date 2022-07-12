@@ -13,42 +13,51 @@ public class TabuleiroAtaque extends Tabuleiro{
         TabuleiroAtaque.posicaoAtacada = posicaoAtacada;
     }
 
+    // Recebe feedback do ataque realizado
     public void respostaAtaque(boolean acertou) {
+        // Seleciona a posicao atacada a desativa
         Posicao posNoTab = grelha[posicaoAtacada.getIntLinha()][posicaoAtacada.getColuna()];
         posNoTab.setAtingida(true);
         JButton b = posNoTab.getBotao();
+        b.setEnabled(false);
+
+        // Muda cor de acordo com o feedback
         if (acertou){
             b.setBackground(Color.decode("#990000"));
         } else {
             b.setBackground(Color.WHITE);
         }
-        b.setEnabled(false);
+
+        // Desativa botoes, vez do oponente
         ativarBotoes(false);
     }
     public TabuleiroAtaque(){
         super();
+        // Cria handlers para os botoes de ataque
         for(int linha = 0; linha < 10; linha++){
             for (int coluna = 0; coluna < 10;coluna++){
                 TabuleiroAtaque.AttackButtonHandler handler = new TabuleiroAtaque.AttackButtonHandler(grelha[linha][coluna]);
-                botoes[linha][coluna].addActionListener(handler);
+                grelha[linha][coluna].getBotao().addActionListener(handler);
             }
         }
     }
     public void atacar(){
+
         if (output != null){
+            // Ataca o oponente pela rede caso tenha um output configurado
             try {
                 output.writeObject(posicaoAtacada);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        }
-        if (oponente != null){
+        } else {
+            // Ataca o oponente local caso contrário
             if (oponente.verificaAcerto(posicaoAtacada)){
                 posicaoAtacada.getBotao().setBackground(Color.decode("#990000"));
             } else {
                 posicaoAtacada.getBotao().setBackground(Color.WHITE);
             }
-            //manda o bot atacar
+            // Caso oponente seja um bot, ele revida
             if (oponente instanceof JogadorComputador)
                 ((JogadorComputador) oponente).atacar();
         }
@@ -60,7 +69,10 @@ public class TabuleiroAtaque extends Tabuleiro{
         }
         @Override
         public void actionPerformed(ActionEvent event) {
+            // "Mira" na posicao selecionada
             TabuleiroAtaque.posicaoAtacada = posicao;
+
+            // Ataca
             atacar();
         }
     }

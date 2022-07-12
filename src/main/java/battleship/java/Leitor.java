@@ -5,10 +5,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 
 public class Leitor implements Runnable {
-
-    private ObjectInputStream input;
-    private TabuleiroAtaque tAtaque;
-    private TabuleiroDefesa tDefesa;
+    private final ObjectInputStream input;
+    private final TabuleiroAtaque tAtaque;
+    private final TabuleiroDefesa tDefesa;
     public Leitor(ObjectInputStream input, TabuleiroDefesa tDefesa, TabuleiroAtaque tAtaque) {
         this.input = input;
         this.tAtaque = tAtaque;
@@ -17,24 +16,26 @@ public class Leitor implements Runnable {
 
     @Override
     public void run() {
+        // Fica rebendo inputs indefinidamente
         while (true) {
             try {
-                Object b = input.readObject();
-                System.out.println("objeto lido");
-                if (b instanceof Posicao){
-                    System.out.println("era posicao");
-                    Posicao p = (Posicao) b;
-                    tDefesa.tabuleiroVerificaAcerto(p);
+
+                // Recebe um objeto
+                Object Recebido = input.readObject();
+                System.out.print("Objeto lido, ");
+
+                if (Recebido instanceof Posicao posicao){
+                    // Se for posicao, verificamos o acerto
+                    System.out.println("era posicao: " + posicao);
+                    tDefesa.tabuleiroVerificaAcerto(posicao);
                     tAtaque.ativarBotoes(true);
                 } else {
-                    System.out.println("era booleano " + (boolean) b);
-                    tAtaque.respostaAtaque((boolean) b);
-//                    tAtaque.setEsperando(false);
-                    System.out.println("qualquer porra");
+                    // Se for booleano, marcamos acerto ou erro
+                    boolean booleano = (boolean) Recebido;
+                    System.out.println("era booleano: " + booleano);
+                    tAtaque.respostaAtaque((boolean) Recebido);
                 }
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (ClassNotFoundException e) {
+            } catch (IOException | ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
 

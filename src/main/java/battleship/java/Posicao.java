@@ -3,21 +3,19 @@ package battleship.java;
 import javax.swing.*;
 import java.io.Serializable;
 
-public class Posicao  implements Cloneable, Serializable {
+public class Posicao implements Cloneable, Serializable {
+
     private char linha;
     private int coluna;
     private JButton botao;
-
     private boolean atingida = false;
+
     public Posicao(char linha, int coluna, JButton botao){
         this.linha = linha;
         this.coluna = coluna;
         this.botao = botao;
     }
-
-    public Posicao(){
-
-    }
+    public Posicao() {}
 
     public Posicao clone(){
         Posicao clone = new Posicao();
@@ -58,16 +56,9 @@ public class Posicao  implements Cloneable, Serializable {
         return botao;
     }
 
-
-//    Tem barco(escondido): cinza
-//    Tem barco(destruido): vermelho
-//    Fog: Branco
-//    Mar: Azul
-
     @Override
     public String toString()
     {
-//        char col = (char)(coluna);
         return linha + String.valueOf(this.coluna);
     }
 

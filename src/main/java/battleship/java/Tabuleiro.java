@@ -2,36 +2,35 @@ package battleship.java;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Tabuleiro extends JPanel {
     protected Posicao[][] grelha;
-    protected JPanel painel = new JPanel();
-    protected JButton[][] botoes;
     protected Jogador oponente;
-    protected static ObjectInputStream input;
     protected static ObjectOutputStream output;
     public Tabuleiro() {
-        botoes = new JButton[10][10];
-        painel.setLayout(new GridLayout(10, 10));
-        this.setLayout(new BorderLayout());
+
+        // Cria matriz de posicoes 10x10
         grelha = new Posicao[10][10];
+
+        // Cria layout 10x10
+        this.setLayout(new GridLayout(10, 10));
+
+        // Cria e adiciona todas as posicoes e botoes
         int aux = 'A';
         for (int linha = 0; linha < 10; linha++) {
             for (int coluna = 0; coluna < 10; coluna++) {
-                botoes[linha][coluna] = new JButton((char) aux + "" + coluna);
-                botoes[linha][coluna].setBackground(Color.decode("#4169E1"));
-                grelha[linha][coluna] = new Posicao((char) aux, coluna,botoes[linha][coluna]);
-                painel.add(botoes[linha][coluna]);
+                JButton botao = new JButton((char) aux + "" + coluna);
+                botao.setBackground(Color.decode("#4169E1"));
+                grelha[linha][coluna] = new Posicao((char) aux, coluna, botao);
+                this.add(botao);
             }
             aux++;
         }
-        this.add(painel, BorderLayout.CENTER);
     }
 
-
+    // Ativa os botoes to tabuleiro, menos os atingidos
     public void ativarBotoes(boolean bol){
         for(int linha = 0; linha < 10; linha++){
             for (int coluna = 0; coluna < 10;coluna++){
@@ -40,6 +39,7 @@ public class Tabuleiro extends JPanel {
             }
         }
     }
+
     public ArrayList<Posicao> getPosicoes(){
         ArrayList<Posicao> posicoes = new ArrayList<>();
         for (int linha = 0; linha < 10; linha++) {
@@ -50,11 +50,8 @@ public class Tabuleiro extends JPanel {
         return posicoes;
     }
 
-
-    public static void setInputOutput(ObjectInputStream i,ObjectOutputStream o) {
-        input = i;
+    public static void setOutput(ObjectOutputStream o) {
         output = o;
-
     }
     public void setOponente(Jogador oponente) {
         this.oponente = oponente;

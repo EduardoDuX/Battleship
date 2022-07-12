@@ -7,10 +7,4 @@ package battleship.java;/*
  * @author Pedro
  */
 public class PosInvalidaException extends RuntimeException{
-    //    public PosInvalidaException(String msg) {
-//        super(msg);
-//    }
-    public void PosInvalidaException(){
-
-    }
 }

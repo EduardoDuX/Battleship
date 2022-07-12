@@ -5,37 +5,44 @@ import java.awt.*;
 import java.io.IOException;
 
 public class OpcoesConexao {
-    private String ip;
     private final JFrame frameConexao;
 
     public OpcoesConexao() {
-        frameConexao = new JFrame("teste");
+        // Cria um frame para opcoes de conexao
+        frameConexao = new JFrame("Opções de conexão");
         frameConexao.setLayout(new FlowLayout());
         frameConexao.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        JTextArea ipText = new JTextArea();
-        ipText.setPreferredSize(new Dimension(120,20));
+        // Cria um botao para criar um jogo
         JButton host = new JButton("Criar jogo");
         host.addActionListener(e -> {frameConexao.dispose();
             try {
-                BatalhaNaval.JogoMultiplayer(true, ip);
+                BatalhaNaval.JogoMultiplayer(true, null);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
 
+        // Cria um textArea para o ip
+        JTextArea ipText = new JTextArea();
+        ipText.setPreferredSize(new Dimension(120,20));
+        ipText.setEditable(true);
+
+        // Cria um botao para conectar a um jogo
         JButton join = new JButton("Entrar em um jogo");
         join.addActionListener(e -> {
-//            ip = ipText.getText();
             frameConexao.dispose();
             try {
-                BatalhaNaval.JogoMultiplayer(false, "127.0.0.1");
+                BatalhaNaval.JogoMultiplayer(false, ipText.getText());
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
+
+        // Cria label "OU"
         JLabel ou = new JLabel("Ou");
 
+        // Adiciona componentes a janela
         frameConexao.add(host);
         frameConexao.add(ou);
         frameConexao.add(ipText);

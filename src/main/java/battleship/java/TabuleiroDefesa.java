@@ -5,8 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class TabuleiroDefesa extends Tabuleiro{
@@ -25,14 +23,18 @@ public class TabuleiroDefesa extends Tabuleiro{
 
     public TabuleiroDefesa(){
         super();
+
+        // Inicializa arrays de barcos
         submarinos = new ArrayList<>();
         portaAvioes = new ArrayList<>();
         contraTorpedeiros = new ArrayList<>();
         naviosTanque = new ArrayList<>();
+
+        // Cria handlers para os botoes de defesa
         for(int linha = 0; linha < 10; linha++){
             for (int coluna = 0; coluna < 10;coluna++){
                 TabuleiroDefesa.DefenseButtonHandler handler = new TabuleiroDefesa.DefenseButtonHandler(grelha[linha][coluna]);
-                botoes[linha][coluna].addActionListener(handler);
+                grelha[linha][coluna].getBotao().addActionListener(handler);
             }
         }
     }
@@ -57,101 +59,120 @@ public class TabuleiroDefesa extends Tabuleiro{
         for (Embarcacao e: submarinos){
             if (e.embarcacaoVerificaAcerto(p)){
                 if (output != null)
-                    output.writeObject(Boolean.valueOf(true));
+                    output.writeObject(Boolean.TRUE);
                 return true;
             }
         }
         for (Embarcacao e: naviosTanque){
             if (e.embarcacaoVerificaAcerto(p)){
                 if (output != null)
-                    output.writeObject(Boolean.valueOf(true));
+                    output.writeObject(Boolean.TRUE);
                 return true;
             }
         }
         for (Embarcacao e: contraTorpedeiros){
             if (e.embarcacaoVerificaAcerto(p)){
                 if (output != null)
-                    output.writeObject(Boolean.valueOf(true));
+                    output.writeObject(Boolean.TRUE);
                 return true;
             }
         }
         for (Embarcacao e: portaAvioes){
             if (e.embarcacaoVerificaAcerto(p)){
                 if (output != null)
-                    output.writeObject(Boolean.valueOf(true));
+                    output.writeObject(Boolean.TRUE);
                 return true;
             }
         }
         grelha[p.getIntLinha()][p.getColuna()].getBotao().setBackground(Color.WHITE);
         if (output != null)
-            output.writeObject(Boolean.valueOf(false));
+            output.writeObject(Boolean.FALSE);
         return false;
     }
 
     public void colocarEmbarcacao(Embarcacao e, Posicao p, boolean orientacao) throws PosInvalidaException{
-        //orientacao == 1(vertical); 0(horizontal)
+        // Orientacao: 1(vertical), 0(horizontal)
+
+        // Coleta informacoes relevantes
         int tam = e.getTamanho();
-        Posicao[] posicoes = new Posicao[tam];
         int linha = (int)p.getLinha() - (int)'A';
         int coluna = p.getColuna();
-        JButton b;
+
+        // Cria array de posicoes para a embarcacao
+        Posicao[] posicoes = new Posicao[tam];
+
+        // Botao auxiliar
+        JButton botao;
 
         if (orientacao){
+            // Vertical
+
             // Verifica acesso indevido de posicao
             if(linha + tam > 10)
                 throw new PosInvalidaException();
 
+            // Verifica se a posicao ja tem um barco
             for (int i = 0; i < tam; i++){
                 if (grelha[linha+i][coluna].getBotao().getBackground().equals(Color.decode("#808080")))
                     throw new PosInvalidaException();
             }
 
+            // Adiciona embarcacao no local desejado
             for (int i = 0; i < tam; i++){
-                b = grelha[linha+i][coluna].getBotao();
-                b.setBackground(Color.decode("#808080"));
+                botao = grelha[linha+i][coluna].getBotao();
+                botao.setBackground(Color.decode("#808080"));
                 posicoes[i] = grelha[linha+i][coluna];
             }
         } else {
+            // Horizontal
+
             // Verifica acesso indevido de posicao
             if(p.getColuna()+tam > 10)
                 throw new PosInvalidaException();
 
+            // Verifica se a posicao ja tem um barco
             for (int i = 0; i < tam; i++){
                 if (grelha[linha][coluna+i].getBotao().getBackground().equals(Color.decode("#808080")))
                     throw new PosInvalidaException();
             }
 
+            // Adiciona embarcacao no local desejado
             for (int i = 0; i < tam; i++){
-                b = grelha[linha][coluna+i].getBotao();
-                b.setBackground(Color.decode("#808080"));
+                botao = grelha[linha][coluna+i].getBotao();
+                botao.setBackground(Color.decode("#808080"));
                 posicoes[i] = grelha[linha][coluna+i];
             }
         }
+        // Configura posicoes no barco
         e.setPosicoes(posicoes);
+
+        // Adiciona barco no array
         if (e instanceof Submarino){
             submarinos.add(e);
         }
-        if (e instanceof PortaAvioes){
+        else if (e instanceof PortaAvioes){
             portaAvioes.add(e);
         }
-        if (e instanceof ContraTorpedeiro){
+        else if (e instanceof ContraTorpedeiro){
             contraTorpedeiros.add(e);
         }
-        if (e instanceof NavioTanque){
+        else if (e instanceof NavioTanque){
             naviosTanque.add(e);
         }
     }
 
     private class DefenseButtonHandler implements ActionListener {
         private final Posicao posicao;
-
         public DefenseButtonHandler(Posicao p){
             this.posicao = p;
         }
 
         @Override
         public void actionPerformed(ActionEvent event) {
+            // Mais um barco adicionado
             barcos++;
+
+            // Seleciona que barco está sendo posicionado de acordo o numero
             try {
                 if (barcos <= NUM_SUBS) {
                     colocarEmbarcacao(new Submarino(), posicao, controleOrientacao);
@@ -163,9 +184,11 @@ public class TabuleiroDefesa extends Tabuleiro{
                     colocarEmbarcacao(new PortaAvioes(), posicao, controleOrientacao);
                 }
             } catch (PosInvalidaException e) {
+                // Nao foi possivel adicionar o barco
                 barcos--;
             }
 
+            // Depois de adicionar os 10 barcos o jogo comeca
             if (barcos == 10){
                 ativarBotoes(false);
                 tAtaque.ativarBotoes(comeca);
