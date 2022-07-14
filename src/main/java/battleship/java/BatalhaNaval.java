@@ -21,7 +21,7 @@ public class BatalhaNaval {
         jc.colocarEmbarcacoes();
 
         // Jogador sempre comeca
-        j.comecar(true);
+//        j.comecar(true);
     }
 
     public static void JogoMultiplayer(boolean ehServidor, String ip) throws IOException {
@@ -53,8 +53,7 @@ public class BatalhaNaval {
         }
         // Iniciando jogador
         Jogador jogador = new Jogador();
-        jogador.setInputOutput(input, output);
-        jogador.comecar(ehServidor);
+        jogador.OpcoesConexao(input, output, ehServidor); // servidor sempre comeca
     }
     public static void main(String[] args) {
         painel = new PainelInicial();

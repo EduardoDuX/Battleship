@@ -15,11 +15,10 @@ public class TabuleiroDefesa extends Tabuleiro{
     protected static final int NUM_SUBS = 4;
     protected static final int NUM_TANKS = 2;
     protected static final int NUM_CT = 3;
-    private boolean comeca = false;
     private TabuleiroAtaque tAtaque;
-
     public boolean controleOrientacao = true;
     protected int barcos = 0;
+    public int acertosOponente = 0;
 
     public TabuleiroDefesa(){
         super();
@@ -39,9 +38,6 @@ public class TabuleiroDefesa extends Tabuleiro{
         }
     }
 
-    public void setComeca(boolean comeca) {
-        this.comeca = comeca;
-    }
 
     public void settAtaque(TabuleiroAtaque tAtaque) {
         this.tAtaque = tAtaque;
@@ -60,6 +56,7 @@ public class TabuleiroDefesa extends Tabuleiro{
             if (e.embarcacaoVerificaAcerto(p)){
                 if (output != null)
                     output.writeObject(Boolean.TRUE);
+                acertosOponente++;
                 return true;
             }
         }
@@ -67,6 +64,7 @@ public class TabuleiroDefesa extends Tabuleiro{
             if (e.embarcacaoVerificaAcerto(p)){
                 if (output != null)
                     output.writeObject(Boolean.TRUE);
+                acertosOponente++;
                 return true;
             }
         }
@@ -74,6 +72,7 @@ public class TabuleiroDefesa extends Tabuleiro{
             if (e.embarcacaoVerificaAcerto(p)){
                 if (output != null)
                     output.writeObject(Boolean.TRUE);
+                acertosOponente++;
                 return true;
             }
         }
@@ -81,7 +80,18 @@ public class TabuleiroDefesa extends Tabuleiro{
             if (e.embarcacaoVerificaAcerto(p)){
                 if (output != null)
                     output.writeObject(Boolean.TRUE);
+                acertosOponente++;
                 return true;
+            }
+        }
+        System.out.println(acertosOponente);
+        if (acertosOponente >= 30){
+            if (oponente != null){
+                JOptionPane.showMessageDialog(oponente.pane, "Voce Venceu");
+                System.exit(0);
+            } else {
+                JOptionPane.showMessageDialog(this, "O oponente venceu");
+                System.exit(0);
             }
         }
         grelha[p.getIntLinha()][p.getColuna()].getBotao().setBackground(Color.WHITE);
@@ -190,8 +200,23 @@ public class TabuleiroDefesa extends Tabuleiro{
 
             // Depois de adicionar os 10 barcos o jogo comeca
             if (barcos == 10){
+                // Sinaliza o oponente que esta pronto
+                if (output != null){
+                    // Sinaliza por rede para multiplayer
+                    try {
+                        output.writeObject(Boolean.TRUE);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                } else {
+                    // Apenas comeca para singleplayer
+                    tAtaque.ativarBotoes(true);
+                }
+                // Desativa o tabuleiro de defesa
                 ativarBotoes(false);
-                tAtaque.ativarBotoes(comeca);
+
+                // Incrementa os barcos para nao cair na funcao novamente
+                barcos++;
             }
         }
     }

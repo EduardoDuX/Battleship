@@ -57,6 +57,10 @@ public class TabuleiroAtaque extends Tabuleiro{
             } else {
                 posicaoAtacada.getBotao().setBackground(Color.WHITE);
             }
+            // Desativa a posicao atacada
+            posicaoAtacada.setAtingida(true);
+            posicaoAtacada.getBotao().setEnabled(false);
+
             // Caso oponente seja um bot, ele revida
             if (oponente instanceof JogadorComputador)
                 ((JogadorComputador) oponente).atacar();

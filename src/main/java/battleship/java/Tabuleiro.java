@@ -23,6 +23,7 @@ public class Tabuleiro extends JPanel {
             for (int coluna = 0; coluna < 10; coluna++) {
                 JButton botao = new JButton((char) aux + "" + coluna);
                 botao.setBackground(Color.decode("#4169E1"));
+                botao.setFocusable(false);
                 grelha[linha][coluna] = new Posicao((char) aux, coluna, botao);
                 this.add(botao);
             }

@@ -7,15 +7,9 @@
     <list default="true" id="64e91800-a98e-4468-acee-5c25529aaf0b" name="Changes" comment="Conexao funcionando">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/BatalhaNaval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/BatalhaNaval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/Embarcacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/Embarcacao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/Jogador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/Jogador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/JogadorComputador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/JogadorComputador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/Leitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/Leitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/Leitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/LeitorRede.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/OpcoesConexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/OpcoesConexao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/PainelInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/PainelInicial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/PosInvalidaException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/PosInvalidaException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/Posicao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/Posicao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/Submarino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/Submarino.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/Tabuleiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/Tabuleiro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroAtaque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroAtaque.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroDefesa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroDefesa.java" afterDir="false" />
@@ -70,14 +64,14 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.battleship.java.BatalhaNaval">
-    <configuration name="BatalhaNaval" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="BatalhaNaval" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BatalhaNaval" />
       <module name="battleship" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="battleship.java.BatalhaNaval" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="battleship.java.BatalhaNaval" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="battleship.java.BatalhaNaval" />
       <module name="battleship" />
       <extension name="coverage">
@@ -90,6 +84,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.BatalhaNaval" />
+      <item itemvalue="Application.battleship.java.BatalhaNaval" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.battleship.java.BatalhaNaval" />

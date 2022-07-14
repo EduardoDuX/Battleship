@@ -13,26 +13,25 @@ public class Jogador {
     protected TabuleiroDefesa tDefesa;
     protected JFrame pane;
 
-    public Jogador(){
 
+    public Jogador(){
         // Cria painel de jogo
         pane = new JFrame("Batalha Naval");
         pane.setVisible(true);
         pane.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
+        pane.setContentPane(new JLabel(new ImageIcon("src/main/java/imagens/imagem_bg.jpeg")));
 
         // Cria tabuleiros
         tAtaque = new TabuleiroAtaque();
+        tAtaque.setBounds(630,260,490,260);
         tDefesa = new TabuleiroDefesa();
+        tDefesa.setBounds(80,260,490,260);
         tDefesa.settAtaque(tAtaque);
 
         // Jogador comeca com tabuleiro de ataque desativado,
         // ativa apos posicionar barcos
         tAtaque.ativarBotoes(false);
 
-        // Cria descricoes para os tabuleiros
-        JLabel textoDefesa = new JLabel("Utilize esse tabuleiro para posicionar seus navios", SwingConstants.CENTER);
-        JLabel textoAtaque = new JLabel("Utilize esse tabuleiro atingir os navios do oponente", SwingConstants.CENTER);
 
         // Cria botao de trocar orientacao do barco
         JButton botao = new JButton(tDefesa.getControleOrientacao() ? "vertical" : "horizontal");
@@ -41,35 +40,10 @@ public class Jogador {
         botao.setPreferredSize(new Dimension(100,20));
 
         // Adiciona elementos ao painel de jogo
-        c.fill = GridBagConstraints.HORIZONTAL;
-
-        //adiciona descricao tabuleiro defesa
-        c.gridx = 0;
-        c.gridy = 0;
-        pane.add(textoDefesa, c);
-
-        // Adiciona espaco entre as descricoes
-        c.gridx = 1;
-        pane.add(Box.createHorizontalStrut(50),c);
-
-        // Adiciona descricao tabuleiro ataque
-        c.gridx = 2;
-        pane.add(textoAtaque, c);
-
-        // Adiciona tabuleiro defesa
-        c.gridx = 0;
-        c.gridy = 1;
-        pane.add(tDefesa, c);
-
-        // Adiciona botao troca orientacao barco
-        c.gridy = 1;
-        c.gridx = 1;
-        pane.add(botao, c);
-
-        // Adiciona tabuleiro ataque
-        c.gridx = 2;
-        c.gridy = 1;
-        pane.add(tAtaque, c);
+        pane.add(Box.createHorizontalStrut(50));
+        pane.add(tDefesa);
+        pane.add(botao);
+        pane.add(tAtaque);
 
         // Ultimas configuracoes da janela
         pane.pack();
@@ -77,21 +51,17 @@ public class Jogador {
         pane.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
-    public void comecar(boolean b){
-        tDefesa.setComeca(b);
-    }
-
     public void setOponenteSolo(Jogador oponente) {
         tDefesa.setOponente(oponente);
         tAtaque.setOponente(oponente);
     }
 
-    public void setInputOutput(ObjectInputStream input,ObjectOutputStream output) {
+    public void OpcoesConexao(ObjectInputStream input, ObjectOutputStream output, boolean comeca) {
         // Configura output nos tabuleiros (static)
         Tabuleiro.setOutput(output);
 
         // Cria thread para receber informacoes por rede e inicia
-        Leitor leitor = new Leitor(input, tDefesa, tAtaque);
+        LeitorRede leitor = new LeitorRede(input, tDefesa, tAtaque, comeca);
         Thread t = new Thread(leitor);
         t.start();
     }
