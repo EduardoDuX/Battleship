@@ -86,7 +86,7 @@ public class TabuleiroDefesa extends Tabuleiro{
         }
         System.out.println(acertosOponente);
         if (acertosOponente >= 30){
-            if (oponente != null){
+            if (oponente instanceof Jogador){
                 JOptionPane.showMessageDialog(oponente.pane, "Voce Venceu");
                 System.exit(0);
             } else {

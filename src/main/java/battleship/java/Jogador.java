@@ -13,7 +13,6 @@ public class Jogador {
     protected TabuleiroDefesa tDefesa;
     protected JFrame pane;
 
-
     public Jogador(){
         // Cria painel de jogo
         pane = new JFrame("Batalha Naval");
@@ -23,9 +22,9 @@ public class Jogador {
 
         // Cria tabuleiros
         tAtaque = new TabuleiroAtaque();
-        tAtaque.setBounds(630,260,490,260);
+        tAtaque.setBounds(690,260,500,260);
         tDefesa = new TabuleiroDefesa();
-        tDefesa.setBounds(80,260,490,260);
+        tDefesa.setBounds(15,260,500,260);
         tDefesa.settAtaque(tAtaque);
 
         // Jogador comeca com tabuleiro de ataque desativado,
@@ -37,13 +36,28 @@ public class Jogador {
         JButton botao = new JButton(tDefesa.getControleOrientacao() ? "vertical" : "horizontal");
         Jogador.OrientacaoButtonHandler handler = new Jogador.OrientacaoButtonHandler();
         botao.addActionListener(handler);
+        botao.setFocusable(false);
         botao.setPreferredSize(new Dimension(100,20));
+        botao.setBounds(550, 360,100,50);
+
+        // Label tabuleiro defesa
+        Font font = new Font("Arial",Font.BOLD, 16);
+        JLabel defesa = new JLabel("Este é seu tabuleiro");
+        defesa.setFont(font);
+        defesa.setBounds(15,240,500, 20);
+
+        // Label tabuleiro ataque
+        JLabel ataque = new JLabel("Este é o tabuleiro do oponente");
+        ataque.setFont(font);
+        ataque.setBounds(690,240,500, 20);
 
         // Adiciona elementos ao painel de jogo
         pane.add(Box.createHorizontalStrut(50));
         pane.add(tDefesa);
         pane.add(botao);
         pane.add(tAtaque);
+        pane.add(defesa);
+        pane.add(ataque);
 
         // Ultimas configuracoes da janela
         pane.pack();
