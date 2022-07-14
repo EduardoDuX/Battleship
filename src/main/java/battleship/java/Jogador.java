@@ -31,7 +31,6 @@ public class Jogador {
         // ativa apos posicionar barcos
         tAtaque.ativarBotoes(false);
 
-
         // Cria botao de trocar orientacao do barco
         JButton botao = new JButton(tDefesa.getControleOrientacao() ? "vertical" : "horizontal");
         Jogador.OrientacaoButtonHandler handler = new Jogador.OrientacaoButtonHandler();
@@ -40,8 +39,11 @@ public class Jogador {
         botao.setPreferredSize(new Dimension(100,20));
         botao.setBounds(550, 360,100,50);
 
-        // Label tabuleiro defesa
+        // Define a fonte
         Font font = new Font("Arial",Font.BOLD, 16);
+
+
+        // Label tabuleiro defesa
         JLabel defesa = new JLabel("Este é seu tabuleiro");
         defesa.setFont(font);
         defesa.setBounds(15,240,500, 20);

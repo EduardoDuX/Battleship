@@ -9,8 +9,8 @@ public class LeitorRede implements Runnable {
     private final ObjectInputStream input;
     private final TabuleiroAtaque tAtaque;
     private final TabuleiroDefesa tDefesa;
-    private boolean podeComecar = false;
-    private boolean comeca;
+    private boolean iniciou = false;
+    private final boolean comeca;
     public LeitorRede(ObjectInputStream input, TabuleiroDefesa tDefesa, TabuleiroAtaque tAtaque, boolean comeca) {
         this.input = input;
         this.tAtaque = tAtaque;
@@ -23,7 +23,6 @@ public class LeitorRede implements Runnable {
         // Fica rebendo inputs indefinidamente
         while (true) {
             try {
-
                 // Recebe um objeto
                 Object Recebido = input.readObject();
                 System.out.print("Objeto lido, ");
@@ -34,12 +33,12 @@ public class LeitorRede implements Runnable {
                     tDefesa.tabuleiroVerificaAcerto(posicao);
                     tAtaque.ativarBotoes(true);
                 } else {
-                    // Se for booleano, verificamos se e o sinal de inicio
-                    if (!podeComecar){
+                    // Se for booleano, verificamos se eh o sinal de inicio
+                    if (!iniciou){
                         if (comeca){
                             tAtaque.ativarBotoes(true);
                         }
-                        podeComecar = true;
+                        iniciou = true;
                     }
                     else {
                         // Se nao for o sinal de inicio, e a resposta de um ataque
@@ -49,8 +48,8 @@ public class LeitorRede implements Runnable {
                     }
                 }
             } catch (IOException | ClassNotFoundException e) {
-                // se o oponente desconecta, voce ganha
-                JOptionPane.showMessageDialog(tAtaque, "Voce Venceu!");
+                // Oponente se desconecta ao ganhar
+                JOptionPane.showMessageDialog(tDefesa, "O oponente venceu!");
                 System.exit(0);
             }
 

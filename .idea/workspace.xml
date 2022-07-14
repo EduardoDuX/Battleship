@@ -7,6 +7,8 @@
     <list default="true" id="64e91800-a98e-4468-acee-5c25529aaf0b" name="Changes" comment="Conexao funcionando">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/Jogador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/Jogador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/LeitorRede.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/LeitorRede.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroAtaque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroAtaque.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroDefesa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/java/TabuleiroDefesa.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

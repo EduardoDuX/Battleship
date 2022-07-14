@@ -18,7 +18,6 @@ public class TabuleiroDefesa extends Tabuleiro{
     private TabuleiroAtaque tAtaque;
     public boolean controleOrientacao = true;
     protected int barcos = 0;
-    public int acertosOponente = 0;
 
     public TabuleiroDefesa(){
         super();
@@ -56,7 +55,6 @@ public class TabuleiroDefesa extends Tabuleiro{
             if (e.embarcacaoVerificaAcerto(p)){
                 if (output != null)
                     output.writeObject(Boolean.TRUE);
-                acertosOponente++;
                 return true;
             }
         }
@@ -64,7 +62,6 @@ public class TabuleiroDefesa extends Tabuleiro{
             if (e.embarcacaoVerificaAcerto(p)){
                 if (output != null)
                     output.writeObject(Boolean.TRUE);
-                acertosOponente++;
                 return true;
             }
         }
@@ -72,7 +69,6 @@ public class TabuleiroDefesa extends Tabuleiro{
             if (e.embarcacaoVerificaAcerto(p)){
                 if (output != null)
                     output.writeObject(Boolean.TRUE);
-                acertosOponente++;
                 return true;
             }
         }
@@ -80,18 +76,7 @@ public class TabuleiroDefesa extends Tabuleiro{
             if (e.embarcacaoVerificaAcerto(p)){
                 if (output != null)
                     output.writeObject(Boolean.TRUE);
-                acertosOponente++;
                 return true;
-            }
-        }
-        System.out.println(acertosOponente);
-        if (acertosOponente >= 30){
-            if (oponente instanceof Jogador){
-                JOptionPane.showMessageDialog(oponente.pane, "Voce Venceu");
-                System.exit(0);
-            } else {
-                JOptionPane.showMessageDialog(this, "O oponente venceu");
-                System.exit(0);
             }
         }
         grelha[p.getIntLinha()][p.getColuna()].getBotao().setBackground(Color.WHITE);

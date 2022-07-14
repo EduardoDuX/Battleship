@@ -8,10 +8,25 @@ import java.io.IOException;
 
 public class TabuleiroAtaque extends Tabuleiro{
     private static Posicao posicaoAtacada;
+    protected int acertos;
 
     public static void setPosicaoAtacada(Posicao posicaoAtacada) {
         TabuleiroAtaque.posicaoAtacada = posicaoAtacada;
     }
+
+    public void verificaVitoria(){
+        acertos++;
+        if (acertos == 30){
+            if (oponente == null || oponente instanceof JogadorComputador){
+                JOptionPane.showMessageDialog(this, "Você venceu!");
+                System.exit(0);
+            } else {
+                JOptionPane.showMessageDialog(oponente.pane, "O oponente venceu");
+                System.exit(0);
+            }
+        }
+    }
+
 
     // Recebe feedback do ataque realizado
     public void respostaAtaque(boolean acertou) {
@@ -24,6 +39,7 @@ public class TabuleiroAtaque extends Tabuleiro{
         // Muda cor de acordo com o feedback
         if (acertou){
             b.setBackground(Color.decode("#990000"));
+            verificaVitoria();
         } else {
             b.setBackground(Color.WHITE);
         }
@@ -42,7 +58,6 @@ public class TabuleiroAtaque extends Tabuleiro{
         }
     }
     public void atacar(){
-
         if (output != null){
             // Ataca o oponente pela rede caso tenha um output configurado
             try {
@@ -54,6 +69,7 @@ public class TabuleiroAtaque extends Tabuleiro{
             // Ataca o oponente local caso contrário
             if (oponente.verificaAcerto(posicaoAtacada)){
                 posicaoAtacada.getBotao().setBackground(Color.decode("#990000"));
+                verificaVitoria();
             } else {
                 posicaoAtacada.getBotao().setBackground(Color.WHITE);
             }
